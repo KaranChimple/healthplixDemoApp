@@ -57,7 +57,6 @@ export const sendOTP = (mobileNo) => async (dispatch) => {
         mobile_number: mobileNo,
       },
     );
-    console.log('RESP SendOTP: ', resp);
     dispatch(sendOTPSuccess(resp.data));
   } catch (error) {
     dispatch(sendOTPFailure(error));
@@ -75,7 +74,6 @@ export const verifyOTP = ({mobileNo, otpToken, otp}) => async (dispatch) => {
         otp: otp,
       },
     );
-    console.log('RESP verifyOTP: ', resp);
     dispatch(verifyOTPSuccess(resp.data));
   } catch (error) {
     dispatch(verifyOTPFailure(error));

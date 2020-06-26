@@ -43,10 +43,12 @@ const styles = StyleSheet.create({
     height: 45,
     borderWidth: 0,
     borderBottomWidth: 1,
+    color: '#333',
   },
   otpInputView: {width: '80%', height: 200},
   underlineStyleHighLighted: {
     borderColor: '#03DAC6',
+    color: 'blue',
   },
   alignItemsInARow: {
     flexDirection: 'row',

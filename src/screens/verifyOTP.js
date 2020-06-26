@@ -54,14 +54,11 @@ class VerifyOTP extends React.PureComponent {
         <OTPInputView
           style={styles.otpInputView}
           pinCount={6}
-          code={code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+          code={code}
           onCodeChanged={this.onOtpChanged}
           autoFocusOnLoad
           codeInputFieldStyle={styles.underlineStyleBase}
           codeInputHighlightStyle={styles.underlineStyleHighLighted}
-          onCodeFilled={(code) => {
-            console.log(`Code is ${code}, you are good to go!`);
-          }}
         />
         <TouchableOpacity style={styles.getOtpButton} onPress={this.verifyOtp}>
           <Text style={styles.getOtpText}>Verify OTP</Text>
