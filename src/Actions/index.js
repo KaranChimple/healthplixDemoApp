@@ -51,20 +51,32 @@ const verifyOTPFailure = (error) => {
 export const sendOTP = (mobileNo) => async (dispatch) => {
   dispatch(sendOTPLoading());
   try {
-    const resp = await axios.get('');
+    const resp = await axios.post(
+      'https://api-test.healthplix.com/api/evolve/sendOtp.php',
+      {
+        mobile_number: mobileNo,
+      },
+    );
     console.log('RESP SendOTP: ', resp);
-    dispatch(sendOTPSuccess(resp.body));
+    dispatch(sendOTPSuccess(resp.data));
   } catch (error) {
     dispatch(sendOTPFailure(error));
   }
 };
 
-export const verifyOTP = (otp) => async (dispatch) => {
+export const verifyOTP = ({mobileNo, otpToken, otp}) => async (dispatch) => {
   dispatch(verifyOTPLoading());
   try {
-    const resp = await axios.get('');
+    const resp = await axios.post(
+      'https://api-test.healthplix.com/api/evolve/verifyOtp.php',
+      {
+        mobile_number: mobileNo,
+        otp_token: otpToken,
+        otp: otp,
+      },
+    );
     console.log('RESP verifyOTP: ', resp);
-    dispatch(verifyOTPSuccess(resp.body));
+    dispatch(verifyOTPSuccess(resp.data));
   } catch (error) {
     dispatch(verifyOTPFailure(error));
   }

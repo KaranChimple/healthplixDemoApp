@@ -10,7 +10,13 @@ const StackNav = createStackNavigator(
     verifyOTP: {screen: VerifyOtp},
     dashboard: {screen: Dashboard},
   },
-  {initialRouteName: 'sendOTP'},
+  {
+    initialRouteName: 'sendOTP',
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    },
+  },
 );
 
 const Routes = createAppContainer(StackNav);

@@ -28,6 +28,7 @@ const verifyOTPReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.error,
+        success: false,
       };
     default:
       return state;
